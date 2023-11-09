@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>ubicacion</th>
+                <th>correo</th>
+                <th>telefono</th>
+                <th>cantidad de salas</th>
+                <th>aforo total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cines %}
+            <tr>
+                <td>{{ i.nombre }}</td>
+                <td>{{ i.ubicacion }}</td>
+                <td>{{ i.correo }}</td>
+                <td>{{ i.telefono }}</td>
+                <td>{{ i.cantSalas }}</td>
+                <td>{{ i.aforo }}</td>
+                <td><a href="/eliminar/{{ i.id }}">Eliminar</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href='/'>Volver al inicio</button>
+</body>
+</html>
