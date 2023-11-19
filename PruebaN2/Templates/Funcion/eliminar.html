@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Duracion de la funcion</th>
+                <th>Nombre de la funcion</th>
+                <th>Horario de la funcion</th>
+                <th>Tipo de funcion</th>
+                <th>Genero de funcion</th>
+                <th>Restriccion de edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cines %}
+            <tr>
+                <td>{{ i.duracionFuncion }}</td>
+                <td>{{ i.nombreFuncion }}</td>
+                <td>{{ i.horarioFuncion }}</td>
+                <td>{{ i.tipoFuncion }}</td>
+                <td>{{ i.generoFuncion }}</td>
+                <td>{{ i.restriccionEdad }}</td>
+                <td><a href="Funcion/eliminar/{{ i.id }}">Eliminar</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href='/'>Volver al inicio</button>
+</body>
+</html>

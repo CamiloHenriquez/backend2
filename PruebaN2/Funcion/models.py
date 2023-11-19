@@ -1,5 +1,6 @@
 from django.db import models
 from django.core import validators
+from Sala.models import Sala
 # Create your models here.
 
 tipoFuncionChoice=[
@@ -18,7 +19,7 @@ class Funcion(models.Model):
     duracionFuncion = models.CharField(max_length=20)
     nombreFuncion = models.CharField(max_length=20)
     horarioFuncion= models.CharField(max_length=30)
-    tipoFuncion = models.PositiveIntegerField(
-    )
+    tipoFuncion = models.PositiveIntegerField()
     generoFuncion = models.CharField(max_length=30)
     restriccionEdad = models.CharField(max_length=30, choices=edadFuncionChoice)
+    sala = models.ForeignKey(Sala, on_delete= models.CASCADE)

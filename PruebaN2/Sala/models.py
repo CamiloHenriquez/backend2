@@ -19,8 +19,6 @@ estadosalaChoice=[
 ]
 
 
-
-
 class Sala(models.Model):
     CantidadSilla=models.PositiveIntegerField()
     NumeroSala=models.CharField(max_length=7)

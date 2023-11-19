@@ -11,23 +11,23 @@
     <table>
         <thead>
             <tr>
-                <th>nombre</th>
-                <th>ubicacion</th>
-                <th>correo</th>
-                <th>telefono</th>
-                <th>cantidad de salas</th>
-                <th>aforo total</th>
+                <th>Duracion de la funcion</th>
+                <th>Nombre de la funcion</th>
+                <th>Horario de la funcion</th>
+                <th>Tipo de funcion</th>
+                <th>Genero de funcion</th>
+                <th>Restriccion de edad</th>
             </tr>
         </thead>
         <tbody>
             {% for i in funciones %}
             <tr>
-                <td>{{ i.nombre }}</td>
-                <td>{{ i.ubicacion }}</td>
-                <td>{{ i.correo }}</td>
-                <td>{{ i.telefono }}</td>
-                <td>{{ i.cantSalas }}</td>
-                <td>{{ i.aforo }}</td>
+                <td>{{ i.duracionFuncion }}</td>
+                <td>{{ i.nombreFuncion }}</td>
+                <td>{{ i.horarioFuncion }}</td>
+                <td>{{ i.tipoFuncion }}</td>
+                <td>{{ i.generoFuncion }}</td>
+                <td>{{ i.restriccionEdad }}</td>
             </tr>
             {% endfor %}
         </tbody>
