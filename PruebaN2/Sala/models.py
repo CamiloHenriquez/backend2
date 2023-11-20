@@ -11,7 +11,7 @@ inclusividad=[
 
 tiposalaChoice=[
     ("normal","Normal"),
-    ("premiun","Premiun"),
+    ("premium","Premium"),
     ("vip","Vip")
 ]
 estadosalaChoice=[
