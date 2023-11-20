@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render
 from Cine.models import Cine
 from Cine.forms import registroCines
 
-
 # Create your views here.
 
 def Inicio(request):

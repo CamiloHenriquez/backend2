@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Cine.views import registrarCine
 from Cine import views
+from Funcion import views as Funciones 
+from Sala import views as Salas
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,18 @@ urlpatterns = [
     path('eliminar/<int:id>', views.eliminar),
     path('mostrarActualizar', views.mostrarActualizar),
     path('mostrarEliminar', views.mostrarEliminar),
+
+    path('registrarFuncion', Funciones.registrarFuncion),
+    path('mostrarFuncion', Funciones.mostrarFuncion),
+    path('actualizarFuncion/<int:id>', Funciones.actualizarFuncion),
+    path('eliminarFuncion/<int:id>', Funciones.eliminarFuncion),
+    path('mostrarActualizarFuncion', Funciones.mostrarActualizarFuncion),
+    path('mostrarEliminarFuncion', Funciones.mostrarEliminarFuncion),
+
+    path('registrarSala', Salas.registrarSala),
+    path('mostrarSala', Salas.mostrarSala),
+    path('actualizarSala/<int:id>', Salas.actualizarSala),
+    path('eliminarSala/<int:id>', Salas.eliminarSala),
+    path('mostrarActualizarSala', Salas.mostrarActualizarSala),
+    path('mostrarEliminarSala', Salas.mostrarEliminarSala),
 ]

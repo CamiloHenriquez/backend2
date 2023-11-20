@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% if funciones %}
+
     <table>
         <thead>
             <tr>
@@ -15,10 +17,11 @@
                 <th>Tipo de funcion</th>
                 <th>Genero de funcion</th>
                 <th>Restriccion de edad</th>
+                <th>Numero de Sala</th>
             </tr>
         </thead>
         <tbody>
-            {% for i in cines %}
+            {% for i in funciones %}
             <tr>
                 <td>{{ i.duracionFuncion }}</td>
                 <td>{{ i.nombreFuncion }}</td>
@@ -26,11 +29,19 @@
                 <td>{{ i.tipoFuncion }}</td>
                 <td>{{ i.generoFuncion }}</td>
                 <td>{{ i.restriccionEdad }}</td>
-                <td><a href="Funcion/actualizar/{{ i.id }}" >Actualizar</td>
+                <td>{{ i.sala }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <button><a href='/'>Volver al inicio</button>
+    {% else %}
+
+    <div>
+        <p>No se encontraron funciones registradas</p>
+    </div>
+    {% endif %}
+
+
 </body>
 </html>

@@ -15,10 +15,11 @@
                 <th>Tipo de funcion</th>
                 <th>Genero de funcion</th>
                 <th>Restriccion de edad</th>
+                <th>Numero de Sala</th>
             </tr>
         </thead>
         <tbody>
-            {% for i in cines %}
+            {% for i in funciones %}
             <tr>
                 <td>{{ i.duracionFuncion }}</td>
                 <td>{{ i.nombreFuncion }}</td>
@@ -26,7 +27,8 @@
                 <td>{{ i.tipoFuncion }}</td>
                 <td>{{ i.generoFuncion }}</td>
                 <td>{{ i.restriccionEdad }}</td>
-                <td><a href="Funcion/eliminar/{{ i.id }}">Eliminar</td>
+                <td>{{ i.sala }}</td>
+                <td><a href="/actualizarFuncion/{{ i.id }}" >Actualizar</td>
             </tr>
             {% endfor %}
         </tbody>

@@ -1,39 +1,46 @@
-from django.shortcuts import render
-from Sala.forms import Formulario
+from django.shortcuts import redirect, render
 from Sala.models import Sala
+from Sala.forms import registroSalas
 
 # Create your views here.
-def renderTemplate(request):
-    return render(request,'firstApp/index.html')
 
-
-def formulario(request):
-    form = Formulario()
-    if request.method == 'POST':
-        form=Formulario(request.POST)
+def registrarSala(request):
+    form = registroSalas()
+    if request.method == 'POST' :
+        form = registroSalas(request.POST)
         if form.is_valid():
             form.save()
-        return renderTemplate(request)
-    data = {'form': form}
-    return render(request,'firstApp/formulario.html',data)
+        return mostrarSala(request)
+    data = {'form':form}
+    return render(request, 'Sala/registrarSala.html',data)
 
-def listadoSala(request):
+def mostrarSala(request):
     salas = Sala.objects.all()
-    data = {'salas': salas}
-    return render(request,'firstApp/listado.html', data)
+    data = {'salas':salas}
+    return render(request, 'Sala/mostrarSala.html',data)
 
-def eliminarProyecto(request,id):
-    sala=Sala.objects.get(id=id)
-    sala.delete()
-    return renderTemplate('/')
+def mostrarActualizarSala(request):
+    salas= Sala.objects.all()
+    data = {'salas':salas}
+    return render(request, 'Sala/actualizarSala.html',data)
 
-def actualizar(request,id):
-    salas=Sala.objects.get(id=id)
-    form=Formulario(instance=salas)
-    if request.method=='POST':
-        form=Formulario(request.POST,instance=salas)
+def mostrarEliminarSala(request):
+    salas = Sala.objects.all()
+    data = {'salas':salas}
+    return render(request, 'Sala/eliminarSala.html',data)
+
+def actualizarSala(request, id):
+    sala = Sala.objects.get(id = id)
+    form = registroSalas(instance = sala)
+    if request.method == 'POST':
+        form = registroSalas(request.POST, instance = sala)
         if form.is_valid():
             form.save()
-        return renderTemplate(request)
-    data={'form':form}
-    return render(request,'firstApp/formulario.html', data)
+        return mostrarSala(request)
+    data = {'form': form}
+    return render(request, 'Sala/registrarSala.html',data)
+
+def eliminarSala(request, id):
+    sala = Sala.objects.get(id = id)
+    sala.delete()
+    return redirect('/mostrarSala')

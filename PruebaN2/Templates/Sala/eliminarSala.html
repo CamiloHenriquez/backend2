@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Cantidad de sillas</th>
+                <th>Numero de la sala</th>
+                <th>Tamaño de la pantalla</th>
+                <th>Inclusividad</th>
+                <th>Tipo de sala</th>
+                <th>Estado</th>
+                <th>Cine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in salas %}
+            <tr>
+                <td>{{ i.CantidadSilla }}</td>
+                <td>{{ i.NumeroSala }}</td>
+                <td>{{ i.TamanioPantalla }}</td>
+                <td>{{ i.InclusividadSala }}</td>
+                <td>{{ i.TipoSala }}</td>
+                <td>{{ i.EstadoSala }}</td>
+                <td> {{ i.cine }}</td>
+                <td><a href="/eliminarSala/{{ i.id }}">Eliminar</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href='/'>Volver al inicio</button>
+</body>
+</html>

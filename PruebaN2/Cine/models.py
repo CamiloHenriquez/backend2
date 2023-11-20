@@ -18,4 +18,5 @@ class Cine(models.Model):
         validators.MaxValueValidator(100000000000)
     ])
 
-
+    def __str__(self) -> str:
+        return self.nombre

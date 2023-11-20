@@ -5,46 +5,43 @@ from Funcion.forms import registroFunciones
 
 # Create your views here.
 
-def Inicio(request):
-    return render(request, 'Funcion/index.html')
-
 def registrarFuncion(request):
     form = registroFunciones()
     if request.method == 'POST' :
         form = registroFunciones(request.POST)
         if form.is_valid():
             form.save()
-        return mostrar(request)
+        return mostrarFuncion(request)
     data = {'form':form}
-    return render(request, 'Funcion/registrar.html',data)
+    return render(request, 'Funcion/registrarFuncion.html',data)
 
-def mostrar(request):
+def mostrarFuncion(request):
     funciones = Funcion.objects.all()
     data = {'funciones':funciones}
-    return render(request, 'Funcion/mostrar.html',data)
+    return render(request, 'Funcion/mostrarFuncion.html',data)
 
-def mostrarActualizar(request):
+def mostrarActualizarFuncion(request):
     funciones = Funcion.objects.all()
     data = {'funciones':funciones}
-    return render(request, 'Funcion/actualizar.html',data)
+    return render(request, 'Funcion/actualizarFuncion.html',data)
 
-def mostrarEliminar(request):
+def mostrarEliminarFuncion(request):
     funciones = Funcion.objects.all()
     data = {'funciones':funciones}
-    return render(request, 'Funcion/eliminar.html',data)
+    return render(request, 'Funcion/eliminarFuncion.html',data)
 
-def actualizar(request, id):
+def actualizarFuncion(request, id):
     funcion = Funcion.objects.get(id = id)
     form = registroFunciones(instance = funcion)
     if request.method == 'POST':
         form = registroFunciones(request.POST, instance = funcion)
         if form.is_valid():
             form.save()
-        return mostrar(request)
+        return mostrarFuncion(request)
     data = {'form': form}
-    return render(request, 'Funcion/registrar.html',data)
+    return render(request, 'Funcion/registrarFuncion.html',data)
 
-def eliminar(request, id):
+def eliminarFuncion(request, id):
     funcion = Funcion.objects.get(id = id)
     funcion.delete()
-    return redirect('/mostrar')
+    return redirect('/mostrarFuncion')

@@ -7,11 +7,11 @@
 </head>
 <body>
     <form method="post">
-        {{form.as_p}}
-        {% csrf_token%}
-        <input type="submit" value="Ingresar">
-
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Registrar">
     </form>
-    <a href="../">Volver</a>
-</body>
+
+    <button><a href='/'>Volver al inicio</button>
+
 </html>
